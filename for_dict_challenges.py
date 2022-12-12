@@ -41,7 +41,7 @@ students = [
     {'first_name': 'Оля'},
 ]
 
-def then_more_name(students):
+def then_more_name(students:list):
     count = list(students.values())
     more_value = sorted(count)
     result = ''
