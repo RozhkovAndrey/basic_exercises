@@ -13,12 +13,26 @@ students = [
     {'first_name': 'Петя'},
 ]
 # ???
+def count_name(students):
+    result = {}
+    for student in students:
+        keys = [student]
+        key =  keys[0]
+        name = student[key]
+        if name in result:
+            result[name] = result[name] + 1
+        else:
+            result[name] = 1
+    return result
+
+
 
 
 # Задание 2
 # Дан список учеников, нужно вывести самое часто повторящееся имя
 # Пример вывода:
 # Самое частое имя среди учеников: Маша
+
 students = [
     {'first_name': 'Вася'},
     {'first_name': 'Петя'},
@@ -26,7 +40,19 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Оля'},
 ]
-# ???
+
+def then_more_name(students):
+    count = list(students.values())
+    more_value = sorted(count)
+    result = ''
+    for name, value in students.items():
+        if value == more_value[-1]:
+            result = name
+    return(result)
+
+print(then_more_name(count_name(students)))
+
+
 
 
 # Задание 3
@@ -44,7 +70,8 @@ school_students = [
         {'first_name': 'Маша'},
         {'first_name': 'Маша'},
         {'first_name': 'Оля'},
-    ],[  # это – третий класс
+    ],
+    [  # это – третий класс
         {'first_name': 'Женя'},
         {'first_name': 'Петя'},
         {'first_name': 'Женя'},
@@ -57,13 +84,26 @@ school_students = [
 # Задание 4
 # Для каждого класса нужно вывести количество девочек и мальчиков в нём.
 # Пример вывода:
-# Класс 2a: девочки 2, мальчики 0 
+# Класс 2a: девочки 2, мальчики 0
 # Класс 2б: девочки 0, мальчики 2
 
 school = [
-    {'class': '2a', 'students': [{'first_name': 'Маша'}, {'first_name': 'Оля'}]},
-    {'class': '2б', 'students': [{'first_name': 'Олег'}, {'first_name': 'Миша'}]},
-    {'class': '2б', 'students': [{'first_name': 'Даша'}, {'first_name': 'Олег'}, {'first_name': 'Маша'}]},
+    {
+        'class': '2a',
+        'students': [{'first_name': 'Маша'}, {'first_name': 'Оля'}],
+    },
+    {
+        'class': '2б',
+        'students': [{'first_name': 'Олег'}, {'first_name': 'Миша'}],
+    },
+    {
+        'class': '2б',
+        'students': [
+            {'first_name': 'Даша'},
+            {'first_name': 'Олег'},
+            {'first_name': 'Маша'},
+        ],
+    },
 ]
 is_male = {
     'Олег': True,
@@ -82,8 +122,14 @@ is_male = {
 # Больше всего девочек в классе 2a
 
 school = [
-    {'class': '2a', 'students': [{'first_name': 'Маша'}, {'first_name': 'Оля'}]},
-    {'class': '3c', 'students': [{'first_name': 'Олег'}, {'first_name': 'Миша'}]},
+    {
+        'class': '2a',
+        'students': [{'first_name': 'Маша'}, {'first_name': 'Оля'}],
+    },
+    {
+        'class': '3c',
+        'students': [{'first_name': 'Олег'}, {'first_name': 'Миша'}],
+    },
 ]
 is_male = {
     'Маша': False,
@@ -92,4 +138,3 @@ is_male = {
     'Миша': True,
 }
 # ???
-
